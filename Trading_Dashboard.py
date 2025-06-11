@@ -120,8 +120,9 @@ else:
     st.altair_chart(chart, use_container_width=True)
 
     # 테이블
-    st.subheader("🧾 거래 상세 정보")
-    st.dataframe(
-        df[["datetime", "title", "ticker", "buy_value", "sale_value", "fee", "profit_ratio", "profit_krw"]],
-        use_container_width=True
-    )
+    if is_authenticated:
+        st.subheader("🧾 거래 상세 정보")
+        st.dataframe(
+            df[["datetime", "title", "ticker", "buy_value", "sale_value", "fee", "profit_ratio", "profit_krw"]],
+            use_container_width=True
+        )
